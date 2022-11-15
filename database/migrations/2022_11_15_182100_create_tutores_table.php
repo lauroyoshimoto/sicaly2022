@@ -19,11 +19,11 @@ class CreateTutoresTable extends Migration
             $table->string("email");
             $table->string("senha");
             $table->string("endereco");
-            $table->string("bairro");
-            $table->string("complemento");
+            $table->string("bairro")->nullable();
+            $table->string("complemento")->nullable();
             $table->string("estado");
             $table->string("cidade");
-            $table->string("cep");
+            $table->string("cep")->nullable();
             $table->date("nascimento");
             $table->enum("sexo", ["M", "F"]);
             $table->timestamps();
