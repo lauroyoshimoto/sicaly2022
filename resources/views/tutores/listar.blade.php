@@ -15,7 +15,7 @@
         <!--search-->
         <div class="search">
             <label>
-                <input type="text" placeholder="Procurar">
+                <input id="pesquisa" type="text" placeholder="Procurar" onchange="buscarTutor()">
                 <ion-icon name="search-outline"></ion-icon>
             </label>
         </div>
@@ -39,8 +39,16 @@
             </thead>
             <tbody>
             @foreach($tutores as $tutor)
-                <tr>
-                    <td>{{ $tutor->nome_completo }}</td>
+                <tr
+                    class="tutor-tr"
+                    data-nome="{{ $tutor->nome_completo }}"
+                    data-email="{{ $tutor->email }}"
+                    data-endereco="{{ $tutor->endereco }}"
+                >
+                    <td>
+                        {{ $tutor->nome_completo }}<br>
+                        {{ $tutor->email }}
+                    </td>
                     <td>{{ $tutor->endereco }}</td>
                     <td>{{ $tutor->pets()->count() }}</td>
                 </tr>
@@ -48,11 +56,24 @@
             </tbody>
     </div>
     </div>
+    <script>
+        function buscarTutor() {
+            const pesquisa = document.getElementById("pesquisa").value.trim().toLowerCase();
+            const tutores = document.getElementsByClassName("tutor-tr");
 
+            for (let tutorTr of tutores) {
+                tutorTr.classList.remove("d-none");
+                const { nome, endereco, email } = tutorTr.dataset;
+                const temNome = nome.toLowerCase().search(pesquisa) > -1;
+                const temEndereco = endereco.toLowerCase().search(pesquisa) > -1;
+                const temEmail = email.toLowerCase().search(pesquisa) > -1;
 
-
-
-
+                if (!temNome && !temEndereco && !temEmail) {
+                    tutorTr.classList.add("d-none");
+                }
+            }
+        }
+    </script>
 </body>
 
 @endsection
