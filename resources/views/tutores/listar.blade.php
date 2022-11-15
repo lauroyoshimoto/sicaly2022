@@ -32,8 +32,9 @@
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
             <thead>
                 <tr>
-                    <th>Name do Tutor</th>
+                    <th>Tutor</th>
                     <th>Endereço</th>
+                    <th>Pets</th>
                 </tr>
             </thead>
             <tbody>
@@ -41,6 +42,7 @@
                 <tr>
                     <td>{{ $tutor->nome_completo }}</td>
                     <td>{{ $tutor->endereco }}</td>
+                    <td>{{ $tutor->pets()->count() }}</td>
                 </tr>
             @endforeach
             </tbody>

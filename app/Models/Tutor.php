@@ -9,4 +9,8 @@ class Tutor extends Model
 {
     use HasFactory;
     protected $table = "tutores";
+
+    public function pets() {
+        return $this->hasMany(Pet::class);
+    }
 }
