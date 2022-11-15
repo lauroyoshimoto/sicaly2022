@@ -35,7 +35,7 @@
                 </a>
             </li>
             <li>
-                <a href="/search">
+                <a href="/tutores">
                     <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
                     <span class="title">Tutores</span>
                 </a>

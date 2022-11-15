@@ -34,10 +34,16 @@
                 <tr>
                     <th>Name do Tutor</th>
                     <th>Endereço</th>
-                    <th>Nome do Animal</th>
-                    <th>Raça</th>
                 </tr>
             </thead>
+            <tbody>
+            @foreach($tutores as $tutor)
+                <tr>
+                    <td>{{ $tutor->nome_completo }}</td>
+                    <td>{{ $tutor->endereco }}</td>
+                </tr>
+            @endforeach
+            </tbody>
     </div>
     </div>
 

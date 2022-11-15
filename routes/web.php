@@ -12,12 +12,11 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+use App\Http\Controllers\TutorController;
 
-use App\Http\Controllers\PetController;
-
-Route::get('/', [PetController::class, 'index']);
-Route::get('/search', [PetController::class, 'search']);
-Route::get('/register', [PetController::class, 'register']);
+Route::get('/', [TutorController::class, 'index']);
+Route::get('/tutores', [TutorController::class, 'tutores']);
+Route::get('/register', [TutorController::class, 'register']);
 
 Route::get('/', function () {
     return view('welcome');

@@ -142,6 +142,8 @@ body {
   min-height: 100vh;
   background: var(--white);
   transition: 0.5s;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 .topbar
 {
@@ -234,8 +236,4 @@ footer p {
   width: calc(100% - 300px);
   left: 230px;
   min-height: 100vh;
-
- 
 }
-
-
