@@ -25,7 +25,7 @@
         <ul>
             <li>
                 <a href="#">
-                    <span id="logo-icon"> <img src="img/sicaly.jpg" width="80" height="80"></span>              
+                    <span id="logo-icon"> <img src="/img/sicaly.jpg" width="80" height="80"></span>              
                 </a>
             </li>
             <li>

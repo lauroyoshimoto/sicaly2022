@@ -15,8 +15,14 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TutorController;
 
 Route::get('/', [TutorController::class, 'index']);
-Route::get('/tutores', [TutorController::class, 'tutores']);
-Route::get('/register', [TutorController::class, 'register']);
+Route::get('/tutores', [TutorController::class, 'tutores'])->name('listar-tutores');
+
+Route::get('/tutores/cadastro', [TutorController::class, 'cadastro']);
+Route::post('/tutores/cadastro', [TutorController::class, 'novo']);
+
+Route::get('/tutores/{tutor}', [TutorController::class, 'atualizar']);
+Route::post('/tutores/{tutor}', [TutorController::class, 'update']);
+Route::get('/tutores/{tutor}/remover', [TutorController::class, 'remover']);
 
 Route::get('/', function () {
     return view('welcome');

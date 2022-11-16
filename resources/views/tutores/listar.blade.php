@@ -6,7 +6,7 @@
 
 <body>
     <div class="main">
-        <a href="/register">
+        <a href="/tutores/cadastro">
             <div class="topbar">
                 <div class="toggle">
                     <ion-icon name="person-add"></ion-icon>
@@ -35,6 +35,7 @@
                     <th>Tutor</th>
                     <th>Endereço</th>
                     <th>Pets</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -51,12 +52,24 @@
                     </td>
                     <td>{{ $tutor->endereco }}</td>
                     <td>{{ $tutor->pets()->count() }}</td>
+                    <td>
+                        <a href="/tutores/{{ $tutor->id }}">Editar</a><br>
+                        <a href="#" onclick="removerTutor({{ $tutor->id }},'{{ $tutor->nome_completo }}')">Remover</a>
+                    </td>
                 </tr>
             @endforeach
             </tbody>
     </div>
     </div>
     <script>
+        function removerTutor(tutorId, nomeTutor) {
+            const vaiRemover = confirm(`Tem certeza que deseja remover o tutor ${nomeTutor}?`);
+
+            if (vaiRemover) {
+                window.open(`/tutores/${tutorId}/remover`, '_self');
+            }
+        }
+
         function buscarTutor() {
             const pesquisa = document.getElementById("pesquisa").value.trim().toLowerCase();
             const tutores = document.getElementsByClassName("tutor-tr");
